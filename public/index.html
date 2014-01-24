@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Sonic Screwdriver</title>
+  </head>
+
+  <body ng-app="ExampleApp">
+
+    <div ng-controller="SoundCtrl">
+      <button ng-click="setupListener()">I'm the listener</button>
+      <button ng-click="setupSender()">I'm the sender</button>
+
+      {{values}}
+    </div>
+
+  </body>
+
+  <script src="bower_components/jquery/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+
+  <script src="vendor/sonicnet/sonicnet.js"></script>
+
+  <script src="js/main.js"></script>
+  <script src="js/services/Sonicnet.js"></script>
+  <script src="js/controllers/SoundCtrl.js"></script>
+</html>

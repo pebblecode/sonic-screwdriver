@@ -1,0 +1,17 @@
+{
+  "name": "sonic-screwdriver",
+  "main": "index.js",
+  "version": "0.0.0",
+  "authors": [
+    "Tane Piper <piper.tane@gmail.com>"
+  ],
+  "directory": "public/bower_components",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
