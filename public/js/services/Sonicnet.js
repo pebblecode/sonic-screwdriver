@@ -1,5 +1,5 @@
 angular.module('Sonicnet', [])
-  .factory('$sonicnetListener', function() {
+  .factory('$sonicnetListener', ['SONIC_ALPHABET', function(SONIC_ALPHABET) {
       /*global SonicCoder: true, SonicServer: true*/
       'use strict';
 
@@ -11,7 +11,7 @@ angular.module('Sonicnet', [])
       });
 
       SonicnetListener.server = new SonicServer({
-        alphabet: ' abcdefghijklmnopqrstuvwxyz1234567890',
+        alphabet: SONIC_ALPHABET,
         debug: false
         // Audible range
         //coder: SonicnetListener.audibleRangeCoder
@@ -19,32 +19,39 @@ angular.module('Sonicnet', [])
 
 
       SonicnetListener.start = function() {
-        SonicnetListener.server.start();
+        if (SonicnetListener.server) {
+          SonicnetListener.server.start();
+        }
       };
 
       SonicnetListener.stop = function() {
-        SonicnetListener.server.stop();
+        if (SonicnetListener.server) {
+          SonicnetListener.server.stop();
+        }
       };
 
       SonicnetListener.on = function(callback) {
         SonicnetListener.server.on('message', callback);
       };
 
+      SonicnetListener.isRunning = function() {
+        return !!SonicnetListener.server.isRunning;
+      };
+
       return SonicnetListener;
-  })
-  .factory('$sonicnetSender', function() {
+  }])
+  .factory('$sonicnetSender', ['SONIC_ALPHABET', function(SONIC_ALPHABET) {
       /*global SonicSocket: true*/
       'use strict';
       var SonicnetSender = {};
 
       SonicnetSender.socket = new SonicSocket({
-        alphabet: ' abcdefghijklmnopqrstuvwxyz1234567890'
+        alphabet: SONIC_ALPHABET
       });
 
       SonicnetSender.send = function(message) {
-        console.log('Message to send', message);
         SonicnetSender.socket.send(message);
       };
 
       return SonicnetSender;
-  });
+  }]);

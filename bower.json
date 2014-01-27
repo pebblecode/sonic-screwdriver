@@ -5,7 +5,6 @@
   "authors": [
     "Tane Piper <piper.tane@gmail.com>"
   ],
-  "directory": "public/bower_components",
   "license": "MIT",
   "ignore": [
     "**/.*",
