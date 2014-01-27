@@ -7,13 +7,40 @@
 }
 
 $paper: #EE4F7E;
+$paper-two: #3A5273;
 $ink: white;
 
 * { box-sizing: border-box }
 
+html,
+body,
+.panel-one,
+.panel-two {
+  width: 100%;
+  height: 100%;
+}
+
 body {
-  background-color: $paper;
   color: $ink;
+}
+
+.panel-one {
+  position: fixed;
+  background-color: $paper;
+  top: 0;
+  left: 0;
+}
+
+.panel-two {
+  position: fixed;
+  background-color: $paper-two;
+  top: 0;
+  left: 100%;
+  -webkit-transition: left .25s;
+
+  &.active {
+    left: 0;
+  }
 }
 
 .logo {
@@ -62,10 +89,10 @@ img {
     z-index: -2;
     position: absolute;
     background-color: $ink;
-    width: 111%;
-    height: 111%;
-    top: -5.5%;
-    left: -5.5%;
+    width: 110%;
+    height: 110%;
+    top: -5%;
+    left: -5%;
 
     -webkit-transition: all .25s;
   }
@@ -75,6 +102,34 @@ img {
     height: 120%;
     top: -10%;
     left: -10%;
+  }
+}
+
+.panel-two .icon{
+  color: $paper-two;
+
+  &::before {
+    background-color: $paper-two;    
+  }
+
+  &::after {
+    background-color: lighten( $paper-two, 35 );
+    -webkit-animation: pulse .5s infinite alternate;
+  }
+}
+
+@-webkit-keyframes pulse {
+  from {
+    width: 110%;
+    height: 110%;
+    top: -5%;
+    left: -5%;
+  }
+  to {
+    width: 140%;
+    height: 140%;
+    top: -20%;
+    left: -20%;
   }
 }
 
