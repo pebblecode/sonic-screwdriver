@@ -1,8 +1,5 @@
 angular.module('SonicScrewdriver', ['ngRoute', 'Sonicnet'])
   .config(['$provide', '$routeProvider', '$locationProvider', function($provide, $routeProvider, $locationProvider) {
-
-      $provide.value('SONIC_ALPHABET', ' abcdefghijklmnopqrstuvwxyz1234567890');
-
       $provide.value('availableAdverts', {
         'abc123': {
           title: '10% off your next visit',
@@ -31,8 +28,4 @@ angular.module('SonicScrewdriver', ['ngRoute', 'Sonicnet'])
       });
 
       $locationProvider.html5Mode(true);
-  }])
-  .run(['$rootScope', function($rootScope) {
-
-
   }]);
