@@ -1,5 +1,8 @@
 angular.module('Sonicnet', [])
-  .factory('$sonicnetListener', ['SONIC_ALPHABET', function(SONIC_ALPHABET) {
+  .value('SONIC_ALPHABET', ' abcdefghijklmnopqrstuvwxyz1234567890')
+  .factory('$sonicnetListener',
+    ['SONIC_ALPHABET', '$rootScope',
+    function(SONIC_ALPHABET, $rootScope) {
       /*global SonicCoder: true, SonicServer: true*/
       'use strict';
 

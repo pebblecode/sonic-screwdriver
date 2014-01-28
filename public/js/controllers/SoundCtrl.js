@@ -14,16 +14,19 @@ angular.module('SonicScrewdriver')
 
       $sonicnetListener.start();
 
-      $sonicnetListener.on(function(message) {
-        //console.log(message);
-        $scope.$apply(function() {
-          $location.path('/ads/' + message);
-        });
+      $sonicnetListener.on(function(adId) {
+        if (availableAdverts[adId]) {
+          if ($sonicnetListener.isRunning()) {
+            $sonicnetListener.stop();
+          }
+          $scope.$apply(function() {
+            $location.path('/ads/' + adId);
+          });
+        }
       });
     };
 
     $scope.setupSender = function() {
-
       $sonicnetSender.send(adKeys[Math.floor(Math.random() * adKeys.length)]);
     };
   }]);
