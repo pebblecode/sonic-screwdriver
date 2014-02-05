@@ -1,1 +1,177 @@
 @import "_normalize.scss";
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+
+$ink: #123;
+$paper: white;
+
+$blue: #37BFF5;
+$orange: #FC8951;
+$green: #63C772;
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  font-family: "museo-sans-rounded";
+  overflow: hidden;
+}
+
+h2 {
+  color: $ink;
+  font-weight: 100;
+  font-size: 50px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+header {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  z-index: 999;
+
+  img {
+    display: block;
+    width: 160px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin: -42px 0 0 -80px;
+  }
+}
+
+
+.panel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: -100%;
+  -webkit-transition: right .3s linear;
+
+  &.active {
+    right: 0;
+  }
+}
+
+.mic-outer {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  height: 70%;
+  text-align: center;
+
+  img {
+    display: block;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -150px;
+  }
+}
+
+.pulse {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: inset 0 0 20px 20px $paper;
+  top: 50%;
+  left: 50%;
+  margin: -150px 0 0 -150px;
+
+  -webkit-animation: pulse 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes pulse {
+  from {
+    box-shadow: inset 0 0 20px 20px $paper;   
+  }
+  to {
+    box-shadow: inset 0 0 20px 76px $paper;      
+  }
+}
+
+.container {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  height: 70%;
+  text-align: center;
+  background: $paper;
+}
+
+.container-inner {
+  height: 310px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  margin-top: -155px;
+}
+
+.star {
+  color: $paper;
+  font-size: 50px;
+  font-weight: 900;
+  line-height: 200px;
+  text-align: center;
+  margin: 20px auto 0;
+  width: 180px;
+  height: 180px; 
+}
+
+.panel-1 {
+  right: 0;
+
+  header {
+    background: $ink;
+  }
+}
+
+.panel-2 {
+  header {
+    background: $blue;
+  }
+
+  .star {
+    background: url('../img/blue-star.svg') no-repeat;
+  }
+}
+
+.panel-3 {
+  header {
+    background: $green;
+  }
+
+  .star {
+    background: url('../img/green-star.svg') no-repeat;
+  }
+}
+
+.panel-4 {
+  header {
+    background: $orange;
+  }
+
+  .star {
+    background: url('../img/orange-star.svg') no-repeat;
+  }
+}
+
+.pick-ad {
+  padding: 2em;
+  text-align: center;
+}
