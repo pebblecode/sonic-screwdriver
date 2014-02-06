@@ -20,7 +20,7 @@ angular.module('SonicScrewdriver')
             $sonicnetListener.stop();
           }
           $scope.$apply(function() {
-            $location.path('/ads/' + adId);
+            $(".panel").toggleClass("active");
           });
         }
       });

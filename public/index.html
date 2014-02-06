@@ -2,15 +2,14 @@
 <html>
   <head>
     <title>Sonic Screwdriver</title>
-    <link rel="stylesheet" href="/bower_components/responsive/rel/responsive.css"/>
+    <!-- <link rel="stylesheet" href="/bower_components/responsive/rel/responsive.css"/> -->
 
-    <link rel="stylesheet" href="/css/nav.css"/>
     <link rel="stylesheet" href="/css/main.css"/>
   </head>
 
   <body ng-app="SonicScrewdriver">
 
-    <nav role="navigation">
+    <nav role="navigation" style="display: none;">
       <div class="container">
         <div class="row">
           <a href="/" rel="home">Sonic Screwdriver</a>
@@ -19,15 +18,73 @@
           </button>
 
           <div id="navigation" class="collapse" ng-controller="SoundCtrl">
-            <a href="#" ng-click="setupListener()">Start Listening</a>
-            <a href="#" ng-click="setupSender()">Send Ad</a>
+            <a href="#" ng-init="setupListener()">Start Listening</a>
+            <a class="send" href="#" ng-click="setupSender()">Send Ad</a>
           </div>
 
         </div>
       </div>
     </nav>
 
-    <main role="main" ng-view class="container"></main>
+    <main role="main" ng-view class="container" style="display: none;"></main>
+
+
+    <section class="panel panel-1 active">
+      <div class="pick-ad">
+        <button class="ad-1">AD ONE</button>
+        <button class="ad-2">AD TWO</button>
+        <button class="ad-3">AD THREE</button>
+      </div>
+
+      <header>
+        <img src="../img/adon-logo.svg">
+      </header>
+      <div class="mic-outer">
+        <img src="../img/mic.svg">
+        <div class="pulse"></div>
+      </div>
+    </section> 
+
+    <section class="panel panel-2">
+      <header>
+        <img src="../img/adon-logo.svg">
+      </header>
+      <div class="container">
+        <div class="container-inner">
+          <h2>order</h2>
+          <h2>catalogue</h2>
+          <div class="star">15</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel panel-3">
+      <header>
+        <img src="../img/adon-logo.svg">
+      </header>
+      <div class="container">
+        <div class="container-inner">
+          <h2>get a</h2>
+          <h2>quote</h2>
+          <div class="star">10</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel panel-4">
+      <header>
+        <img src="../img/adon-logo.svg">
+      </header>
+      <div class="container">
+        <div class="container-inner">
+          <h2>watch</h2>
+          <h2>again</h2>
+          <div class="star">5</div>
+        </div>
+      </div>
+    </section>
+
+
   </body>
 
   <script src="/bower_components/jquery/jquery.js"></script>
